@@ -1,16 +1,39 @@
 
-import Header from './components/header';
-import Kelas from './components/kelas';
+import { useState } from 'react';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+
+// import Header from './components/header';
+// import Kelas from './components/kelas';
+import Home from './pages/Home';
+import About from './pages/About';
+import NotFound from './pages/NotFound';
 
 function App() {
-  return (
-    <div>
-        <h1>Hello, world!</h1>
-        <h2>It is {new Date().toLocaleTimeString()}</h2>
+  // const [getDesc,setDesc] = useState("Halo ini deskripsi default");
 
-        <Kelas />
-    </div>
+  // const changeBTN = () => {
+  //   setDesc("Berikut link wa grup : wa.me/ghy3331fs");
+  // }
+
+  return (
+    // <div>
+    //     <Header name="Reza Bagus" list="1" newDesc={getDesc}/>
+    //     <button onClick={changeBTN}>Click Me !!</button>
+    //     <Kelas />
+    // </div>
+    // <h1>
+    //   hallo 
+    // </h1>
+
+    <Router>
+      <Routes>
+        <Route path='/' element={<Home />}/>
+        <Route path='/About' element={<About />}/>
+        <Route path='*' element={<NotFound />}/>
+      </Routes>
+    </Router>
   );
+
 }
 
 export default App;
